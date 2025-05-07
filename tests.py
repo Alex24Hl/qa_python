@@ -3,11 +3,11 @@ from main import BooksCollector
 
 class TestBooksCollector: 
     
-    def test_add_new_book_add_two_books(self):        
+    def test_add_new_book_successfully(self):        
         collector = BooksCollector()
         collector.add_new_book('Гордость и предубеждение и зомби')
-        collector.add_new_book('Что делать, если ваш кот хочет вас убить')                
-        assert len(collector.get_books_rating()) == 2
+        collector.add_new_book('Горизонт событий')        
+        assert len(collector.books_genre) == 2        
 
 
     def test_add_new_book_validation_40_char_limit(self):
@@ -24,9 +24,10 @@ class TestBooksCollector:
 
     def test_get_book_genre_successfully(self):
         collector = BooksCollector()
-        collector.add_new_book('Токийский Зодиак')
-        collector.set_book_genre('Токийский Зодиак', 'Детективы')
-        assert collector.get_books_genre['Токийский Зодиак'] == 'Детективы'
+        book_name = 'Солярис'
+        collector.add_new_book(book_name)
+        collector.set_book_genre(book_name, 'Фантастика')
+        assert collector.get_book_genre(book_name) == 'Фантастика'
 
     def test_get_books_with_specific_genre_successfully(self):
         collector = BooksCollector()
