@@ -9,7 +9,6 @@ class TestBooksCollector:
         collector.add_new_book('Горизонт событий')        
         assert len(collector.books_genre) == 2        
 
-
     def test_add_new_book_validation_40_char_limit(self):
         collector = BooksCollector()
         books_with_long_name = 'Бабушка велела кланяться и передать, что просит прощения'
